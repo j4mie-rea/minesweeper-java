@@ -14,6 +14,14 @@ public class Board {
 		initialiseGrid();
 	}
 	
+	public int getRows() {
+		return this.rows;
+	}
+	
+	public int getColumns() {
+		return this.columns;
+	}
+	
 	public void initialiseGrid() {
 		for (int r = 0; r < rows; r++) {
             for (int c = 0; c < columns; c++) {
@@ -110,5 +118,27 @@ public class Board {
 	        revealCell(r + 1, c    ); // Bottom
 	        revealCell(r + 1, c + 1); // Bottom-Right
 	    }
+	}
+	
+	public void revealAllMines() {
+	    for (int r = 0; r < rows; r++) {
+	        for (int c = 0; c < columns; c++) {
+	            if (grid[r][c].isMine()) {
+	                grid[r][c].setRevealed(true);
+	            }
+	        }
+	    }
+	}
+	
+	public int countRevealed() {
+	    int count = 0;
+	    for (int r = 0; r < rows; r++) {
+	        for (int c = 0; c < columns; c++) {
+	            if (grid[r][c].isRevealed()) {
+	                count++;
+	            }
+	        }
+	    }
+	    return count;
 	}
 }
