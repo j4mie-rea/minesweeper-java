@@ -34,8 +34,6 @@ public class Cell {
     }
 
     public void toggleFlag() {
-        // Simple switch: if true, make false. If false, make true.
-        // Important: You can usually only flag a cell if it is NOT revealed yet.
         if (!isRevealed) {
             isFlagged = !isFlagged;
         }
