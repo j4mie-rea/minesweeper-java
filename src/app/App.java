@@ -15,7 +15,7 @@ public class App {
         GameWindow window = new GameWindow(game);
 
         //allows left and right click to be inputs
-        InputHandler input = new InputHandler(game, window.getBoardPanel());
+        InputHandler input = new InputHandler(game, window);
 
         //connects the inputs to the ui
         for (JButton[] row : window.getBoardPanel().getButtons()) {

@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import core.Game;
+import utils.GameState;
 
 public class BoardPanel extends JPanel {
 	private JButton[][] buttons;
@@ -70,8 +71,13 @@ public class BoardPanel extends JPanel {
 					btn.setEnabled(false);//stops the user from clicking revealed cells
 
 					if (cell.isMine()) {
-						btn.setBackground(Color.RED);//sets button background to red
-						btn.setText("X");
+						if (game.getGameState() == GameState.WON) {
+					        btn.setBackground(Color.GREEN);//sets mine background colour to green if won
+					        btn.setText("M");
+					    } else {
+					        btn.setBackground(Color.RED);//sets mine background colour to red if lost
+					        btn.setText("X");
+					    }
 					} else {
 						if (cell.getNeighborMineCount() > 0) {
 							btn.setText(String.valueOf(cell.getNeighborMineCount())); //shows the number of neighbouring mines

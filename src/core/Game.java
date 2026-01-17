@@ -70,6 +70,16 @@ public class Game {
         }
     }
     
+    //resets game state after win/loss
+    public void reset() {
+    	this.gameState = GameState.NOT_STARTED;
+    	this.isFirstClick = true;
+    	
+    	this.board = new Board(board.getRows(), board.getColumns());
+    	
+    	this.stats = new GameStatistics();
+    }
+    
  
     //getters for ui
     public Board getBoard() { return board; }
